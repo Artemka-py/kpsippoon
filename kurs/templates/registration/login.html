@@ -1,0 +1,21 @@
+{% extends "../project/index.html" %} &nbsp;
+{% block content %}
+  <div style="margin-top: 100px">
+  <!-- <h2 >Авторизация</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <a class="btn  btn-primary">Вход</a>
+  </form> -->
+  <form method="POST" class="form-signin"  >
+    {% csrf_token %}
+                <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Авторизация</h1>
+                <input style="margin-bottom: 10px;" type="text" name="username" placeholder="Логин" class="form-control">
+                <input type="password" name="password" placeholder="Пароль" class="form-control" >
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                      <input class="btn btn-primary " style="margin-right: 15px;"  type="submit" value="Войти">
+                      <a class="btn  btn-primary" href="{% url 'reg' %}">Регистрация</a>
+                    </div>
+  </form>
+</div>
+{% endblock content %}

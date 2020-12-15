@@ -1,0 +1,19 @@
+{% extends "./index.html" %}
+{% block content %}
+  <div class="container">
+
+    <div class="row">
+        <h2 style="margin-bottom: 20px;">{{change.title}}</h2>
+        <p style="margin-bottom: 20px;">{{change.description}}</p>
+        {% if user.is_authenticated %}
+          <p><a class="btn btn-primary mr-5" href="{{ product.product_path.url }}" >Скачать</a></p>
+        {% else %}
+          <p><a class="btn btn-primary mr-5" href="{% url 'auth' %}">Авторизация</a></p>
+        {% endif %}
+        <p>
+          <a class="btn btn-secondary" href="{% url 'home' %}" role="button">Вернуться на главную</a>
+        </p>
+    </div>
+    <hr />
+  </div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends "../project/index.html" %} &nbsp;
+{% block content %}
+<div style="margin-top: 100px">
+  <form class="form-signin" action="" method="POST">
+    {% csrf_token %}
+  
+    <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Регистрация</h1>
+  
+    <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email" required required autofocus value="{{ registration_form.initial.email }}">
+    <br>
+    <input name="username" type="text" id="inputUsername" class="form-control" placeholder="Имя пользователя" value="{{ registration_form.initial.username }}">
+    <br>
+    <input name="password1" type="password" id="inputPassword1" class="form-control" placeholder="Пароль" value="{{ registration_form.initial.password }}">
+    <br>
+    <input name="password2" type="password" id="inputPassword2" class="form-control" placeholder="Введите пароль еще раз" value="{{ registration_form.initial.password2 }}">
+  
+    {% for field in registration_form %}
+  
+      {% for error in field.errors %}
+        {{error}}
+      {% endfor %}
+  
+    {% endfor %}
+  
+    <br>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Заргеистрироваться</button>
+  
+  </form>
+</div>
+{% endblock content %}
